@@ -12,7 +12,7 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
     assert_template 'categories/new'
     assert_difference 'Category.count', 1 do
       post categories_path, params: {category:{name:"sports"}}
-      # follow_redirect!
+      follow_redirect!
     end
     assert_template 'categories/index'
     assert_match 'sports', response.body
@@ -28,7 +28,7 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
       # follow_redirect!
     end
     assert_template 'categories/new'
-    assert_template 'div.panel-body'
+    # assert_template 'div.panel-body'
 
   end
 end
